@@ -10,28 +10,11 @@ public class Main {
 
         System.out.println("Podaj PESEL");
 
-        try {
-         String pesel = sc.next();
-         Length(pesel);
-         containsDigits(pesel);
-        } catch (IllegalArgumentException ex)
-        {
-            ex.printStackTrace();
-        }
-    }
+        PeselValidator pv = new PeselValidator(sc.next());
 
-    public static void containsDigits(String pesel) {
-
-        char[] peselAr = pesel.toCharArray();
-        for(int i=0; i<peselAr.length;i++)
-            if((int)peselAr[i] < 48 || (int)peselAr[i] > 57)
-                throw new IllegalArgumentException("Podano litere zamiast cyfry");
+        if(pv.isCorrect(pv.getPesel())) System.out.println("PESEL poprawny");
 
     }
 
-    public static void Length(String pesel) {
-        if (String.valueOf(pesel).length() != 11) {
-            throw new IllegalArgumentException("PESEL musi zawierac 11 liczb");
-        }
-    }
+
 }
