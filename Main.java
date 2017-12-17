@@ -16,7 +16,7 @@ public class Main {
          containsDigits(pesel);
         } catch (IllegalArgumentException ex)
         {
-            throw new IllegalArgumentException(ex);
+            ex.printStackTrace();
         }
     }
 
