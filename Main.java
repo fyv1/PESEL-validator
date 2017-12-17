@@ -4,27 +4,19 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
-	Scanner sc = new Scanner(System.in);
-    try {
+    public static void main(String[] args) throws Exception{
+
+        Scanner sc = new Scanner(System.in);
+
         System.out.println("Podaj PESEL");
         String pesel = sc.next();
 
         if(String.valueOf(pesel).length() != 11) {
-            NotElevenDigits e = new NotElevenDigits("PESEL musi zawierac 11 liczb");
-            throw e;
+            throw new Exception("PESEL musi zawierac 11 liczb");
         }
         if(!containsDigits(pesel)){
-            CharsFounded e = new CharsFounded("Podano litere zamiast cyfry");
-            throw e;
+            throw new Exception("Podano litere zamiast cyfry");
         }
-    }
-    catch(NotElevenDigits e) {
-        e.printStackTrace();
-    }
-    catch(CharsFounded e) {
-        e.printStackTrace();
-    }
 
     }
 
